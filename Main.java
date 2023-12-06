@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         // Create an instance of the Stemmer class
-        Stemmer stemmer = new Stemmer();
+        Stemmer_word stemmer = new Stemmer_word();
         // Create a Scanner object to get input from the user
         Scanner scanner = new Scanner(System.in);
         // Prompt the user to enter a word
