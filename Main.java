@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         // Create an instance of the Stemmer class
-        Stemmer_word stemmer = new Stemmer_word();
+        Stemmer stemmer = new Stemmer();
         // Create a Scanner object to get input from the user
         Scanner scanner = new Scanner(System.in);
         // Prompt the user to enter a word
@@ -24,8 +24,20 @@ public class Main {
             suffix = "ful";
         } else if (word.endsWith("est")) {
             suffix = "est";
+        } else if (word.endsWith("ing")) {
+            suffix = "ing";
+        } else if (word.endsWith("es")) {
+            suffix = "es";
+        } else if (word.endsWith("ic")) {
+            suffix = "ic";
+        } else if (word.endsWith("er")) {
+            suffix = "er";
+        } else if (word.endsWith("ness")) {
+            suffix = "ness";
+        } else if (word.endsWith("ity")) {
+            suffix = "ity";
         } else {
-            System.out.println("The word does not end with any of the following suffixes: ed, ly, ful, or est.");
+            System.out.println("The word does not end with any of the following suffixes: ed, ly, ful, est, ing, es, ic, er, ness, or ity.");
             return;
         }
         // Declare a variable to store the stemmed word
@@ -44,8 +56,26 @@ public class Main {
             case "est":
                 stemmedWord = stemmer.stemEst(word);
                 break;
+            case "ing":
+                stemmedWord = stemmer.stemIng(word);
+                break;
+            case "es":
+                stemmedWord = stemmer.stemEs(word);
+                break;
+            case "ic":
+                stemmedWord = stemmer.stemIc(word);
+                break;
+            case "er":
+                stemmedWord = stemmer.stemEr(word);
+                break;
+            case "ness":
+                stemmedWord = stemmer.stemNess(word);
+                break;
+            case "ity":
+                stemmedWord = stemmer.stemIty(word);
+                break;
             default:
-                System.out.println("Invalid suffix. Please enter one of the following: ed, ly, ful, or est.");
+                System.out.println(word);
                 return;
         }
         // Print the original word and the stemmed word
@@ -53,6 +83,7 @@ public class Main {
         System.out.println("Stemmed word: " + stemmedWord);
     }
 }
+
 
 class Stemmer_word {
     public String stemEd(String word) {
